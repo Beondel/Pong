@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ftC-qc-aBg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7QL-37-Xye">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,10 +15,26 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="hf3-bs-etn">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="7QL-37-Xye" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p6l-SU-jG8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ftC-qc-aBg" kind="relationship" relationship="rootViewController" id="Vkh-my-b5N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TdX-IN-uM1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1410" y="58"/>
+        </scene>
+        <!--MenuVC-->
         <scene sceneID="aWW-cb-a3T">
             <objects>
-                <viewController id="ftC-qc-aBg" sceneMemberID="viewController">
+                <viewController id="ftC-qc-aBg" customClass="MenuVC" customModule="Pong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Rt-zs-Yon"/>
                         <viewControllerLayoutGuide type="bottom" id="FAO-0v-yiG"/>
@@ -28,7 +44,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_pong" translatesAutoresizingMaskIntoConstraints="NO" id="7ft-N6-Qea">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tN3-MA-J9n" userLabel="mainStackView">
@@ -55,6 +71,9 @@
                                                 <state key="normal" title="Easy">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="easyGame:" destination="ftC-qc-aBg" eventType="touchUpInside" id="UTr-gi-FUq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpw-9v-CT2" userLabel="Medium">
                                                 <rect key="frame" x="112" y="113.5" width="64" height="57"/>
@@ -62,6 +81,9 @@
                                                 <state key="normal" title="Medium">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="mediumGame:" destination="ftC-qc-aBg" eventType="touchUpInside" id="wiK-j7-H08"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCi-EM-CVz" userLabel="Hard">
                                                 <rect key="frame" x="122.5" y="170.5" width="43" height="56.5"/>
@@ -69,6 +91,9 @@
                                                 <state key="normal" title="Hard">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="hardGame:" destination="ftC-qc-aBg" eventType="touchUpInside" id="1hZ-9G-Ba1"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="854-0V-HVn">
                                                 <rect key="frame" x="0.0" y="227" width="288" height="57"/>
@@ -91,15 +116,16 @@
                             <constraint firstItem="tN3-MA-J9n" firstAttribute="leading" secondItem="TDU-Th-RqS" secondAttribute="leadingMargin" id="z6V-xn-2sV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yqW-ct-JuY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jlJ-hV-J2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-658.39999999999998" y="123.68815592203899"/>
+            <point key="canvasLocation" x="-660" y="123.59154929577466"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Pong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameVC" id="BV1-FR-VrT" customClass="GameViewController" customModule="Pong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
                         <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
